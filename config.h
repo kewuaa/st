@@ -45,7 +45,7 @@ int allowaltscreen = 1;
 
 /* allow certain non-interactive (insecure) window operations such as:
    setting the clipboard text */
-int allowwindowops = 0;
+int allowwindowops = 1;
 
 /*
  * draw latency range in ms - from new content/keypress/etc until drawing.
@@ -96,32 +96,32 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	"#1b1d2b",
+	"#ff757f",
+	"#c3e88d",
+	"#ffc777",
+	"#82aaff",
+	"#c099ff",
+	"#86e1fc",
+	"#828bb8",
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#444a73",
+	"#ff757f",
+	"#c3e88d",
+	"#ffc777",
+	"#82aaff",
+	"#c099ff",
+	"#86e1fc",
+	"#c8d3f5",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+	"#c8d3f5", /* default foreground colour */
+	"#222436", /* default background colour */
 };
 
 
@@ -203,6 +203,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
+	{ MODKEY|ShiftMask,     XK_L,           copyurl,        {.i =  1} },
 };
 
 /*
