@@ -2102,6 +2102,7 @@ xdrawline(Line line, int x1, int y1, int x2)
 		i = ox = 0;
 		for (x = x1; x < x2 && i < numspecs; x++) {
 			new = line[x];
+            historyOverlay(x, y1, &new);
 			if (new.mode == ATTR_WDUMMY)
 				continue;
 			if (selected(x, y1))
