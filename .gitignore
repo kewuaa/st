@@ -2,3 +2,6 @@
 *.rej
 *.orig
 st
+/src
+/pkg
+*.zst

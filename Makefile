@@ -24,7 +24,8 @@ st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
-	rm -f st $(OBJ) st-$(VERSION).tar.gz
+	rm -rf src pkg
+	rm -f st $(OBJ) st-$(VERSION).tar.gz *.zst
 
 dist: clean
 	mkdir -p st-$(VERSION)
@@ -41,7 +42,8 @@ install: st
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	sed "s/VERSION/$(VERSION)/g" < st.1 > $(DESTDIR)$(MANPREFIX)/man1/st.1
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
-	tic -sx st.info
+	mkdir -p $(DESTDIR)/usr/share/terminfo
+	tic -sx -o $(DESTDIR)/usr/share/terminfo st.info
 	@echo Please see the README file regarding the terminfo entry of st.
 
 uninstall:
