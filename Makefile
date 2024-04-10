@@ -24,8 +24,7 @@ st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
-	rm -rf src pkg
-	rm -f st $(OBJ) st-$(VERSION).tar.gz *.zst
+	rm -f st $(OBJ) st-$(VERSION).tar.gz
 
 dist: clean
 	mkdir -p st-$(VERSION)
