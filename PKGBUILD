@@ -2,6 +2,13 @@ pkgname=st
 pkgver="0.1.0"
 pkgrel=1
 arch=("x86_64")
+depends=(
+    "libx11"
+    "libxft"
+    "libxrender"
+    "fontconfig"
+    "freetype2"
+)
 makedepends=("gcc" "make" "pkgconf")
 
 
